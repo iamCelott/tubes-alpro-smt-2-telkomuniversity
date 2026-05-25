@@ -6,7 +6,9 @@ import (
 )
 
 func main() {
+	utils.Migrate()
 	var action int
 	fmt.Println("---------- BangunIn ---------- ")
-	utils.PrintCustom(&action, []string{"Profile", "Settings", "Logout"})
+	utils.PrintCustom(&action, []string{"Users", "Bahan Bangunan", "Logout"})
+	utils.PrintCRUD(&action)
 }
