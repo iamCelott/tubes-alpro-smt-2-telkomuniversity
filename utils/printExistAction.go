@@ -3,7 +3,7 @@ package utils
 import "fmt"
 
 func PrintCRUD(action_var *int) {
-	var labels = []string{"Read", "Create", "Update", "Delete"}
+	var labels = []string{"Read", "Detail", "Create", "Update", "Delete"}
 	for i, label := range labels {
 		fmt.Printf("[%d] %s\n", i+1, label)
 	}

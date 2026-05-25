@@ -31,9 +31,6 @@ func Migrate() {
 				fmt.Printf("Gagal membuat file %s: %v\n", fileName, err)
 				continue
 			}
-			fmt.Printf("File %s berhasil dibuat!\n", fileName)
-		} else {
-			fmt.Printf("File %s sudah ada. Skip.\n", fileName)
 		}
 	}
 }
