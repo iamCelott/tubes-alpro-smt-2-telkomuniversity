@@ -22,7 +22,7 @@ func main() {
 		var action_supplier int
 		fmt.Println("---------- Supplier ---------- ")
 		utils.PrintCRUD(&action_supplier)
-		supplier.Index(action_supplier)
+		supplier.Index()
 	case 3:
 		fmt.Println("Keluar!")
 		return
