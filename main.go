@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bangunin/utils"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello Worlds")
+	var action int
+	fmt.Println("---------- BangunIn ---------- ")
+	utils.PrintCustom(&action, []string{"Profile", "Settings", "Logout"})
 }
