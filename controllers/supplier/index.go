@@ -2,22 +2,15 @@ package supplier
 
 import (
 	"bangunin/controllers/supplier/actions"
+	"bangunin/utils"
 	"fmt"
 )
 
 func Index() {
-	var action_supplier int
-
 	for {
-		fmt.Println("\n--------- Supplier ---------")
-		fmt.Println("[1] Read")
-		fmt.Println("[2] Detail")
-		fmt.Println("[3] Create")
-		fmt.Println("[4] Update")
-		fmt.Println("[5] Delete")
-		fmt.Println("[0] Kembali ke Menu Utama")
-		fmt.Print("Masukan aksi: ")
-		fmt.Scanln(&action_supplier)
+		var action_supplier int
+		fmt.Println("---------- Supplier ---------- ")
+		utils.PrintCRUD(&action_supplier)
 
 		switch action_supplier {
 		case 1:
@@ -30,11 +23,8 @@ func Index() {
 			actions.Update()
 		case 5:
 			actions.Delete()
-		case 0:
-			fmt.Println("Kembali ke menu utama...")
-			return 
-		default:
-			fmt.Println("Aksi tidak valid! Silakan pilih menu yang tersedia.")
+		case 6:
+			return
 		}
 	}
 }

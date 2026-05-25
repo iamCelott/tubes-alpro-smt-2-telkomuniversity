@@ -50,7 +50,4 @@ func Create() {
 	}
 
 	fmt.Println("\nSupplier berhasil ditambahkan!")
-
-	fmt.Println("\nTekan Enter untuk kembali ke menu...")
-	scanner.Scan()
 }
