@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func Create() {
@@ -29,12 +30,47 @@ func Create() {
 
 	fmt.Print("Masukkan Alamat: ")
 	scanner.Scan()
-	newSupplier.Lokasi = scanner.Text()
+	newSupplier.Alamat = scanner.Text()
+
+	fmt.Print("Masukkan Kota: ")
+	scanner.Scan()
+	newSupplier.Kota = scanner.Text()
+
+	fmt.Print("Masukkan Kabupaten: ")
+	scanner.Scan()
+	newSupplier.Kabupaten = scanner.Text()
+
+	fmt.Print("Masukkan Provinsi: ")
+	scanner.Scan()
+	newSupplier.Provinsi = scanner.Text()
 
 	fmt.Print("Masukkan No Telepon: ")
 	scanner.Scan()
-	newSupplier.Kontak = scanner.Text()
+	newSupplier.Telepon = scanner.Text()
 
+	fmt.Print("Masukkan Email: ")
+	scanner.Scan()
+	newSupplier.Email = scanner.Text()
+
+	fmt.Print("Masukkan Jumlah Pelayanan: ")
+	scanner.Scan()
+	angka, err := strconv.Atoi(scanner.Text())
+	if err != nil {
+		fmt.Println("Error: Input yang dimasukkan bukan angka!")
+		return
+	}
+	newSupplier.JumlahPelayanan = angka
+
+	fmt.Print("Masukkan Rating: ")
+	scanner.Scan()
+
+	ratingNilai, err := strconv.ParseFloat(scanner.Text(), 64)
+	if err != nil {
+		fmt.Println("Error: Input harus berupa angka desimal (contoh: 4.5)!")
+		return
+	}
+
+	newSupplier.Rating = ratingNilai
 	suppliers = append(suppliers, newSupplier)
 
 	updatedData, err := json.MarshalIndent(suppliers, "", "    ")

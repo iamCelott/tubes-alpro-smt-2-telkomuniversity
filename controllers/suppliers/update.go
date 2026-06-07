@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -45,18 +46,70 @@ func Update() {
 		suppliers[indexFound].Nama = inputNama
 	}
 
-	fmt.Printf("Alamat Baru [%s]: ", current.Lokasi)
+	fmt.Printf("Alamat Baru [%s]: ", current.Alamat)
 	scanner.Scan()
 	inputAlamat := scanner.Text()
 	if strings.TrimSpace(inputAlamat) != "" {
-		suppliers[indexFound].Lokasi = inputAlamat
+		suppliers[indexFound].Alamat = inputAlamat
 	}
 
-	fmt.Printf("No Telepon Baru [%s]: ", current.Kontak)
+	fmt.Printf("Kota [%s]: ", current.Kota)
 	scanner.Scan()
-	inputTelp := scanner.Text()
-	if strings.TrimSpace(inputTelp) != "" {
-		suppliers[indexFound].Kontak = inputTelp
+	inputKota := scanner.Text()
+	if strings.TrimSpace(inputKota) != "" {
+		suppliers[indexFound].Kota = inputKota
+	}
+
+	fmt.Printf("Kabupaten [%s]: ", current.Kabupaten)
+	scanner.Scan()
+	inputKabupaten := scanner.Text()
+	if strings.TrimSpace(inputKabupaten) != "" {
+		suppliers[indexFound].Kabupaten = inputKabupaten
+	}
+
+	fmt.Printf("Provinsi [%s]: ", current.Provinsi)
+	scanner.Scan()
+	inputProvinsi := scanner.Text()
+	if strings.TrimSpace(inputProvinsi) != "" {
+		suppliers[indexFound].Provinsi = inputProvinsi
+	}
+
+	fmt.Printf("No telpon baru [%s]: ", current.Telepon)
+	scanner.Scan()
+	inputTelepon := scanner.Text()
+	if strings.TrimSpace(inputTelepon) != "" {
+		suppliers[indexFound].Telepon = inputTelepon
+	}
+
+	fmt.Printf("Email baru [%s]: ", current.Email)
+	scanner.Scan()
+	inputEmail := scanner.Text()
+	if strings.TrimSpace(inputEmail) != "" {
+		suppliers[indexFound].Email = inputEmail
+	}
+
+	fmt.Printf("Jumlah Pelayanan [%d]: ", current.JumlahPelayanan)
+	scanner.Scan()
+	textJumlahPelayanan := scanner.Text()
+	if textJumlahPelayanan != "" {
+		inputJumlahPelayanan, err := strconv.Atoi(textJumlahPelayanan)
+		if err != nil {
+			fmt.Println("Error: Input yang dimasukkan bukan angka!")
+			return
+		}
+		suppliers[indexFound].JumlahPelayanan = inputJumlahPelayanan
+	}
+
+	fmt.Printf("Rating [%.1f]: ", current.Rating)
+	scanner.Scan()
+	textRating := scanner.Text()
+	if textRating != "" {
+		inputRating, err := strconv.ParseFloat(textRating, 64)
+		if err != nil {
+			fmt.Println("Error: Input yang dimasukkan bukan angka!")
+			return
+		}
+		suppliers[indexFound].Rating = inputRating
 	}
 
 	// Simpan perubahan ke JSON
