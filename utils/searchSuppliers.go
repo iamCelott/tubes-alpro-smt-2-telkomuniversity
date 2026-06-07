@@ -5,8 +5,16 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 )
+
+func sortByName(suppliers []models.Supplier) {
+	sort.Slice(suppliers, func(i, j int) bool {
+		return strings.ToLower(suppliers[i].Nama) <
+			strings.ToLower(suppliers[j].Nama)
+	})
+}
 
 func sequentialSearch(suppliers []models.Supplier, keyword string) []models.Supplier {
 	keyword = strings.ToLower(keyword)
@@ -66,6 +74,7 @@ func SearchSuppliers(suppliers []models.Supplier) {
 	if isSequential {
 		results = sequentialSearch(suppliers, keyword)
 	} else {
+		sortByName(suppliers)
 		results = binarySearch(suppliers, keyword)
 	}
 
