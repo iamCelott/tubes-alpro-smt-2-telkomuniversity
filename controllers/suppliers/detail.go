@@ -30,6 +30,22 @@ func Detail() {
 		if s.ID == searchID {
 			fmt.Println("\n--- Data Ditemukan ---")
 			utils.PrintSupplier(s)
+
+			riwayat, errRiwayat := services.ReadRiwayatPelayanan()
+			if errRiwayat == nil {
+				fmt.Println("\nRiwayat Pelayanan:")
+				count := 0
+				for _, r := range riwayat {
+					if r.SupplierID == searchID {
+						fmt.Printf("  [%s] %s\n", r.ID, r.Pelayanan)
+						count++
+					}
+				}
+				if count == 0 {
+					fmt.Println("  (Belum ada riwayat pelayanan)")
+				}
+			}
+
 			fmt.Println()
 			found = true
 			break
