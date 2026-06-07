@@ -10,7 +10,6 @@ func Migrate() {
 	folderPath := "storages"
 
 	fileNames := []string{
-		"bahan_bangunan.json",
 		"supplier.json",
 	}
 

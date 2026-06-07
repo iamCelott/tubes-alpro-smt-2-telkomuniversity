@@ -1,4 +1,4 @@
-package actions
+package suppliers
 
 import (
 	"bangunin/models"
