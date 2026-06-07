@@ -1,6 +1,7 @@
 package suppliers
 
 import (
+	"bangunin/controllers/riwayatPelayanan"
 	"bangunin/services"
 	"bangunin/utils"
 	"bufio"
@@ -44,11 +45,11 @@ func Detail() {
 	utils.PrintCustom(&action, []string{"Tambah riwayat pelayanan", "Ubah riwayat pelayanan", "Hapus riwayat pelayanan", "Kembali"})
 	switch action {
 	case 1:
-		//
+		riwayatPelayanan.Create(searchID)
 	case 2:
-		//
+		riwayatPelayanan.Update(searchID)
 	case 3:
-		//
+		riwayatPelayanan.Delete(searchID)
 	case 4:
 		fmt.Printf("Kembali!\n\n")
 		return
