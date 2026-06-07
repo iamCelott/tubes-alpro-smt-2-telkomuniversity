@@ -1,0 +1,5 @@
+package suppliers
+
+func Statistik() {
+
+}

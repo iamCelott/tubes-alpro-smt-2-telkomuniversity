@@ -11,7 +11,7 @@ func main() {
 	for {
 		fmt.Println("---------- BangunIn ---------- ")
 		var action int
-		utils.PrintCustom(&action, []string{"Tampilkan semua data supplier", "Tampilkan detail data supplier", "Tambah data supplier", "Ubah data supplier", "Hapus data supplier", "Keluar"})
+		utils.PrintCustom(&action, []string{"Tampilkan semua data supplier", "Tampilkan detail data supplier", "Tambah data supplier", "Ubah data supplier", "Hapus data supplier", "Statistik supplier", "Keluar"})
 		switch action {
 		case 1:
 			suppliers.Read()
@@ -24,6 +24,8 @@ func main() {
 		case 5:
 			suppliers.Delete()
 		case 6:
+			suppliers.Statistik()
+		case 7:
 			fmt.Println("Keluar!")
 			return
 		}
