@@ -2,6 +2,7 @@ package suppliers
 
 import (
 	"bangunin/models"
+	"bangunin/services"
 	"bufio"
 	"encoding/json"
 	"fmt"
@@ -13,16 +14,18 @@ func Create() {
 	fmt.Println("\n======= TAMBAH SUPPLIER =======")
 	scanner := bufio.NewScanner(os.Stdin)
 
-	suppliers, err := ReadSuppliers()
+	suppliers, err := services.ReadSuppliers()
 	if err != nil {
 		fmt.Println("Gagal membaca data lama:", err)
+		fmt.Println()
 		return
 	}
 
 	var newSupplier models.Supplier
 
-	newSupplier.ID = fmt.Sprintf("%d", len(suppliers)+1)
-	fmt.Printf("ID Supplier Otomatis: %s\n", newSupplier.ID)
+	fmt.Print("Masukkan ID Supplier: ")
+	scanner.Scan()
+	newSupplier.ID = scanner.Text()
 
 	fmt.Print("Masukkan Nama Supplier: ")
 	scanner.Scan()
@@ -56,7 +59,7 @@ func Create() {
 	scanner.Scan()
 	angka, err := strconv.Atoi(scanner.Text())
 	if err != nil {
-		fmt.Println("Error: Input yang dimasukkan bukan angka!")
+		fmt.Printf("Error: Input yang dimasukkan bukan angka!\n\n")
 		return
 	}
 	newSupplier.JumlahPelayanan = angka
@@ -66,7 +69,7 @@ func Create() {
 
 	ratingNilai, err := strconv.ParseFloat(scanner.Text(), 64)
 	if err != nil {
-		fmt.Println("Error: Input harus berupa angka desimal (contoh: 4.5)!")
+		fmt.Printf("Error: Input harus berupa angka desimal (contoh: 4.5)!\n\n")
 		return
 	}
 
@@ -76,14 +79,16 @@ func Create() {
 	updatedData, err := json.MarshalIndent(suppliers, "", "    ")
 	if err != nil {
 		fmt.Println("Gagal memproses JSON:", err)
+		fmt.Println()
 		return
 	}
 
 	err = os.WriteFile("storages/supplier.json", updatedData, 0644)
 	if err != nil {
 		fmt.Println("Gagal menyimpan ke file:", err)
+		fmt.Println()
 		return
 	}
 
-	fmt.Println("\nSupplier berhasil ditambahkan!")
+	fmt.Printf("\nSupplier berhasil ditambahkan!\n\n")
 }

@@ -11,6 +11,7 @@ func Migrate() {
 
 	fileNames := []string{
 		"supplier.json",
+		"riwayatPelayanan.json",
 	}
 
 	err := os.MkdirAll(folderPath, 0755)

@@ -1,6 +1,7 @@
 package suppliers
 
 import (
+	"bangunin/services"
 	"bufio"
 	"encoding/json"
 	"fmt"
@@ -13,9 +14,10 @@ func Update() {
 	fmt.Println("\n======= UPDATE SUPPLIER =======")
 	scanner := bufio.NewScanner(os.Stdin)
 
-	suppliers, err := ReadSuppliers()
+	suppliers, err := services.ReadSuppliers()
 	if err != nil {
 		fmt.Println("Gagal membaca data:", err)
+		fmt.Println()
 		return
 	}
 
@@ -32,7 +34,7 @@ func Update() {
 	}
 
 	if indexFound == -1 {
-		fmt.Println("Supplier tidak ditemukan.")
+		fmt.Printf("Supplier tidak ditemukan.\n\n")
 		return
 	}
 
@@ -94,7 +96,7 @@ func Update() {
 	if textJumlahPelayanan != "" {
 		inputJumlahPelayanan, err := strconv.Atoi(textJumlahPelayanan)
 		if err != nil {
-			fmt.Println("Error: Input yang dimasukkan bukan angka!")
+			fmt.Printf("Error: Input yang dimasukkan bukan angka!\n\n")
 			return
 		}
 		suppliers[indexFound].JumlahPelayanan = inputJumlahPelayanan
@@ -106,7 +108,7 @@ func Update() {
 	if textRating != "" {
 		inputRating, err := strconv.ParseFloat(textRating, 64)
 		if err != nil {
-			fmt.Println("Error: Input yang dimasukkan bukan angka!")
+			fmt.Printf("Error: Input yang dimasukkan bukan angka!\n\n")
 			return
 		}
 		suppliers[indexFound].Rating = inputRating
@@ -116,14 +118,16 @@ func Update() {
 	updatedData, err := json.MarshalIndent(suppliers, "", "    ")
 	if err != nil {
 		fmt.Println("Gagal memproses JSON:", err)
+		fmt.Println()
 		return
 	}
 
 	err = os.WriteFile("storages/supplier.json", updatedData, 0644)
 	if err != nil {
 		fmt.Println("Gagal memperbarui file:", err)
+		fmt.Println()
 		return
 	}
 
-	fmt.Println("\nData Supplier berhasil diperbarui!")
+	fmt.Printf("\nData Supplier berhasil diperbarui!\n\n")
 }
