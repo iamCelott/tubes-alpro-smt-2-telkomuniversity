@@ -2,6 +2,7 @@ package suppliers
 
 import (
 	"bangunin/models"
+	"bangunin/services"
 	"bufio"
 	"encoding/json"
 	"fmt"
@@ -13,9 +14,10 @@ func Delete() {
 	fmt.Println("\n======= HAPUS SUPPLIER =======")
 	scanner := bufio.NewScanner(os.Stdin)
 
-	suppliers, err := ReadSuppliers()
+	suppliers, err := services.ReadSuppliers()
 	if err != nil {
 		fmt.Println("Gagal membaca data:", err)
+		fmt.Println()
 		return
 	}
 
@@ -35,21 +37,23 @@ func Delete() {
 	}
 
 	if !found {
-		fmt.Println("Supplier dengan ID tersebut tidak ditemukan.")
+		fmt.Printf("Supplier dengan ID tersebut tidak ditemukan.\n\n")
 		return
 	}
 
 	updatedData, err := json.MarshalIndent(updatedSuppliers, "", "    ")
 	if err != nil {
 		fmt.Println("Gagal memproses JSON:", err)
+		fmt.Println()
 		return
 	}
 
 	err = os.WriteFile("storages/supplier.json", updatedData, 0644)
 	if err != nil {
 		fmt.Println("Gagal memperbarui file:", err)
+		fmt.Println()
 		return
 	}
 
-	fmt.Println("\nSupplier berhasil dihapus!")
+	fmt.Printf("\nSupplier berhasil dihapus!\n\n")
 }
