@@ -27,25 +27,13 @@ func Create() {
 	scanner.Scan()
 	newSupplier.ID = scanner.Text()
 
-	fmt.Print("Masukkan Nama Supplier: ")
+	fmt.Print("Masukkan Nama: ")
 	scanner.Scan()
 	newSupplier.Nama = scanner.Text()
 
-	fmt.Print("Masukkan Alamat: ")
+	fmt.Print("Masukkan Lokasi: ")
 	scanner.Scan()
-	newSupplier.Alamat = scanner.Text()
-
-	fmt.Print("Masukkan Kota: ")
-	scanner.Scan()
-	newSupplier.Kota = scanner.Text()
-
-	fmt.Print("Masukkan Kabupaten: ")
-	scanner.Scan()
-	newSupplier.Kabupaten = scanner.Text()
-
-	fmt.Print("Masukkan Provinsi: ")
-	scanner.Scan()
-	newSupplier.Provinsi = scanner.Text()
+	newSupplier.Lokasi = scanner.Text()
 
 	fmt.Print("Masukkan No Telepon: ")
 	scanner.Scan()
@@ -54,15 +42,6 @@ func Create() {
 	fmt.Print("Masukkan Email: ")
 	scanner.Scan()
 	newSupplier.Email = scanner.Text()
-
-	fmt.Print("Masukkan Jumlah Pelayanan: ")
-	scanner.Scan()
-	angka, err := strconv.Atoi(scanner.Text())
-	if err != nil {
-		fmt.Printf("Error: Input yang dimasukkan bukan angka!\n\n")
-		return
-	}
-	newSupplier.JumlahPelayanan = angka
 
 	fmt.Print("Masukkan Rating: ")
 	scanner.Scan()

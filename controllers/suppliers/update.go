@@ -48,32 +48,11 @@ func Update() {
 		suppliers[indexFound].Nama = inputNama
 	}
 
-	fmt.Printf("Alamat Baru [%s]: ", current.Alamat)
+	fmt.Printf("Lokasi Baru [%s]: ", current.Lokasi)
 	scanner.Scan()
-	inputAlamat := scanner.Text()
-	if strings.TrimSpace(inputAlamat) != "" {
-		suppliers[indexFound].Alamat = inputAlamat
-	}
-
-	fmt.Printf("Kota [%s]: ", current.Kota)
-	scanner.Scan()
-	inputKota := scanner.Text()
-	if strings.TrimSpace(inputKota) != "" {
-		suppliers[indexFound].Kota = inputKota
-	}
-
-	fmt.Printf("Kabupaten [%s]: ", current.Kabupaten)
-	scanner.Scan()
-	inputKabupaten := scanner.Text()
-	if strings.TrimSpace(inputKabupaten) != "" {
-		suppliers[indexFound].Kabupaten = inputKabupaten
-	}
-
-	fmt.Printf("Provinsi [%s]: ", current.Provinsi)
-	scanner.Scan()
-	inputProvinsi := scanner.Text()
-	if strings.TrimSpace(inputProvinsi) != "" {
-		suppliers[indexFound].Provinsi = inputProvinsi
+	inputLokasi := scanner.Text()
+	if strings.TrimSpace(inputLokasi) != "" {
+		suppliers[indexFound].Lokasi = inputLokasi
 	}
 
 	fmt.Printf("No telpon baru [%s]: ", current.Telepon)
@@ -88,18 +67,6 @@ func Update() {
 	inputEmail := scanner.Text()
 	if strings.TrimSpace(inputEmail) != "" {
 		suppliers[indexFound].Email = inputEmail
-	}
-
-	fmt.Printf("Jumlah Pelayanan [%d]: ", current.JumlahPelayanan)
-	scanner.Scan()
-	textJumlahPelayanan := scanner.Text()
-	if textJumlahPelayanan != "" {
-		inputJumlahPelayanan, err := strconv.Atoi(textJumlahPelayanan)
-		if err != nil {
-			fmt.Printf("Error: Input yang dimasukkan bukan angka!\n\n")
-			return
-		}
-		suppliers[indexFound].JumlahPelayanan = inputJumlahPelayanan
 	}
 
 	fmt.Printf("Rating [%.1f]: ", current.Rating)

@@ -68,14 +68,8 @@ func getField(s models.Supplier, field string) string {
 	switch field {
 	case "nama":
 		return s.Nama
-	case "alamat":
-		return s.Alamat
-	case "kota":
-		return s.Kota
-	case "kabupaten":
-		return s.Kabupaten
-	case "provinsi":
-		return s.Provinsi
+	case "lokasi":
+		return s.Lokasi
 	}
 	return ""
 }
@@ -86,10 +80,7 @@ func SearchSuppliers(suppliers []models.Supplier) {
 	fmt.Println("\n======= PENCARIAN SUPPLIER =======")
 	fmt.Println("Cari berdasarkan:")
 	fmt.Println("1. Nama")
-	fmt.Println("2. Alamat")
-	fmt.Println("3. Kota")
-	fmt.Println("4. Kabupaten")
-	fmt.Println("5. Provinsi")
+	fmt.Println("2. Lokasi")
 	fmt.Print("Pilih (1-5): ")
 	fieldInput, _ := reader.ReadString('\n')
 	fieldInput = strings.TrimSpace(fieldInput)
@@ -99,13 +90,7 @@ func SearchSuppliers(suppliers []models.Supplier) {
 	case "1":
 		field = "nama"
 	case "2":
-		field = "alamat"
-	case "3":
-		field = "kota"
-	case "4":
-		field = "kabupaten"
-	case "5":
-		field = "provinsi"
+		field = "lokasi"
 	default:
 		fmt.Println("Pilihan field tidak valid.")
 		return
