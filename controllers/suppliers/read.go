@@ -39,16 +39,16 @@ func Read() {
 
 	for _, s := range suppliers {
 		fmt.Println("--------------------------------")
-		fmt.Println("ID         			:", s.ID)
-		fmt.Println("Nama       			:", s.Nama)
-		fmt.Println("Alamat     			:", s.Alamat)
-		fmt.Println("Kota 					:", s.Kota)
-		fmt.Println("Kabupaten 				:", s.Kabupaten)
-		fmt.Println("Provinsi 				:", s.Provinsi)
-		fmt.Println("No Telepon 			:", s.Telepon)
-		fmt.Println("Email 					:", s.Email)
-		fmt.Println("Jumlah Pelayanan 		:", s.JumlahPelayanan)
-		fmt.Println("Rating 				:", fmt.Sprintf("%.1f", s.Rating))
+		fmt.Printf("%-22s : %s\n", "ID", s.ID)
+		fmt.Printf("%-22s : %s\n", "Nama", s.Nama)
+		fmt.Printf("%-22s : %s\n", "Alamat", s.Alamat)
+		fmt.Printf("%-22s : %s\n", "Kota", s.Kota)
+		fmt.Printf("%-22s : %s\n", "Kabupaten", s.Kabupaten)
+		fmt.Printf("%-22s : %s\n", "Provinsi", s.Provinsi)
+		fmt.Printf("%-22s : %s\n", "No Telepon", s.Telepon)
+		fmt.Printf("%-22s : %s\n", "Email", s.Email)
+		fmt.Printf("%-22s : %d\n", "Jumlah Pelayanan", s.JumlahPelayanan)
+		fmt.Printf("%-22s : %.1f\n", "Rating", s.Rating)
 	}
 	fmt.Println("--------------------------------")
 
