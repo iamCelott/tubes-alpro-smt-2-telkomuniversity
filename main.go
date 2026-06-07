@@ -1,8 +1,7 @@
 package main
 
 import (
-	"bangunin/controllers/bahanBangunan"
-	"bangunin/controllers/supplier"
+	"bangunin/controllers/suppliers"
 	"bangunin/utils"
 	"fmt"
 )
@@ -12,13 +11,17 @@ func main() {
 	for {
 		fmt.Println("---------- BangunIn ---------- ")
 		var action int
-		utils.PrintCustom(&action, []string{"Bahan Bangunan", "Supplier", "Keluar"})
+		utils.PrintCustom(&action, []string{"Tampilkan data suppliers", "Tambah data supplier", "Ubah data supplier", "Hapus data supplier", "Keluar"})
 		switch action {
 		case 1:
-			bahanBangunan.Index()
+			suppliers.Read()
 		case 2:
-			supplier.Index()
+			suppliers.Create()
 		case 3:
+			suppliers.Update()
+		case 4:
+			suppliers.Delete()
+		case 5:
 			fmt.Println("Keluar!")
 			return
 		}
