@@ -39,10 +39,16 @@ func Read() {
 
 	for _, s := range suppliers {
 		fmt.Println("--------------------------------")
-		fmt.Println("ID         :", s.ID)
-		fmt.Println("Nama       :", s.Nama)
-		fmt.Println("Alamat     :", s.Lokasi)
-		fmt.Println("No Telepon :", s.Kontak)
+		fmt.Println("ID         			:", s.ID)
+		fmt.Println("Nama       			:", s.Nama)
+		fmt.Println("Alamat     			:", s.Alamat)
+		fmt.Println("Kota 					:", s.Kota)
+		fmt.Println("Kabupaten 				:", s.Kabupaten)
+		fmt.Println("Provinsi 				:", s.Provinsi)
+		fmt.Println("No Telepon 			:", s.Telepon)
+		fmt.Println("Email 					:", s.Email)
+		fmt.Println("Jumlah Pelayanan 		:", s.JumlahPelayanan)
+		fmt.Println("Rating 				:", fmt.Sprintf("%.1f", s.Rating))
 	}
 	fmt.Println("--------------------------------")
 
